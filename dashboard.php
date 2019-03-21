@@ -1,11 +1,35 @@
-<<<<<<< HEAD
 <?php
 
-
-include('session.php');
+ /*    Session handling and the connection  */
+session_start();
+if(!isset($_SESSION['username']) || !isset($_SESSION['userid'])){
+   
+    header('Location: login.php');
+    exit;
+}
 require 'connect.php';
-
 ?>
+
+
+<?php 
+ /*    Add a post to the database, get the from the form  */
+
+if(isset($_POST['insert'])) {
+$blog_title = $_POST['blog_title'];
+$blog_content = $_POST['blog_content'];
+			try{
+    $statement = $connect->prepare("INSERT INTO `post` (`postid`, `blog_post`, `blog_title`) VALUES ('NULL', :blog_content, :blog_title)");
+    $statement->bindParam(':blog_content', $blog_content);
+    $statement->bindParam(':blog_title', $blog_title);
+    $statement->execute();
+}
+catch(PDOException $e){
+    die("Connection to database failed: " . $e->getMessage());
+}
+		
+	}
+?>
+
 
 <html>
 <head>
@@ -22,11 +46,20 @@ require 'connect.php';
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
    <link href="https://fonts.googleapis.com/css?family=Poppins:400,900" rel="stylesheet">
+        <style type="text/css">
+
+            .wrapper{
+                
+                
+                margin-top:20px;
+            }
+    </style>
 </head>
     
     
     
 <body>
+    <div class="wrapper">
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-12">
@@ -43,15 +76,15 @@ require 'connect.php';
 		</div>
 	</div>
     
-    
-
-    <form role="form">
+<div  class="row">
+    	<div class="col-md-6">
+    <form action "" method="post">
 				<div class="form-group form-control-sm form-control-lg">
 					 
 					<label for="blog_title">
 						Blog Title
 					</label>
-					<input type="blog_title" class="form-control" id="blog_title" name="blog_title" />
+					<input type="text" class="form-control" id="blog_title" name="blog_title" />
 				</div>
 				
 				<div class="form-group form-control-sm form-control-lg">
@@ -63,33 +96,9 @@ require 'connect.php';
 				</button>
 			</form>
 		</div>
-
-
+</div>
+    </div>
+        </div>
 </body>
 
-=======
-<html>
-<head>
-
-    <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-<!-- Popper JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-   <link href="https://fonts.googleapis.com/css?family=Poppins:400,900" rel="stylesheet">
-</head>
-    
-    
-    
-<body>
-
-</body>
-
->>>>>>> 06d4ef5d9421b0130be042e9b62b83ecd778b168
 </html>
