@@ -106,7 +106,7 @@
                    <h1>Welcome to my new home, I hope you will enjoy your visit.</h1>
             
             
-            <div>Just a brief background on the website, this website was built to become a playground of sort, the technological world is changing and you need a lab, this little website is my lab, I will be testing new technologies on this website and I will blog my experiences and upload all my projects onto my database.</div>
+            <div>Just a brief background on the website, this website was built to become a playground of sort, I needed my own lab, I will be testing new technologies on this website and I will blog my experiences and upload all my projects onto my database.</div>
                    
                    </div>
     </div>

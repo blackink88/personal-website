@@ -83,8 +83,6 @@ catch(PDOException $e){
 	</div>
     
 <div  class="row" style="margin-top:20px">
-    
-
     	<div class="col-md-12 jumbotron">
             <div class="col-md-6">
                 <h1>Add blog entry</h1></div>
