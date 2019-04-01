@@ -2,8 +2,8 @@
 
 // Definition of the database
 define('dbhost', '127.0.0.1');
-define('dbuser', 'exploit');
-define('dbpass', 'mondesa');
+define('dbuser', '');
+define('dbpass', '');
 define('dbname', 'blog');
 // Connect to the database
 try {
