@@ -28,7 +28,7 @@
 					if($password == $data['password']) {
 						$_SESSION['userid'] = $data['userid'];
 						$_SESSION['username'] = $data['username'];
-						header('Location: admin/dashboard.php');
+						header('Location: dashboard.php');
 						exit;
 					}
 					else
