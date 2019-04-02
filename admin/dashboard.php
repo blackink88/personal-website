@@ -7,7 +7,7 @@ if(!isset($_SESSION['username']) || !isset($_SESSION['userid'])){
     header('Location: login.php');
     exit;
 }
-require 'connect.php';
+require '../connect.php';
 
 ?>
 
